@@ -1,0 +1,54 @@
+<body style="font-family: Arial, sans-serif">
+  <h2 style="text-align: center"><%= report %></h2>
+  <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px">
+    <thead>
+      <tr>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          ID
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Party Name
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Pending Balance
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i = 0; i < data.length; i++) { %>
+      <tr>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= data[i].retailer_id %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= data[i].retailer_name %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= data[i].pending_amount %>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>

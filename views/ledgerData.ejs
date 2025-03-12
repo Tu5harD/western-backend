@@ -1,0 +1,134 @@
+<h2 style="text-align: center">Ledger Data Of <%= retailer_name %></h2>
+<table
+  style="
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    overflow: hidden;
+  "
+>
+  <thead>
+    <tr>
+      <th
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          background-color: #4ecdc4;
+        "
+      >
+        Tansaction Type
+      </th>
+      <th
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          background-color: #4ecdc4;
+        "
+      >
+        Amount
+      </th>
+      <th
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          background-color: #4ecdc4;
+        "
+      >
+        Balance
+      </th>
+      <th
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          background-color: #4ecdc4;
+        "
+      >
+        Payment Type
+      </th>
+      <th
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          background-color: #4ecdc4;
+        "
+      >
+        Description
+      </th>
+      <th
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          background-color: #4ecdc4;
+        "
+      >
+        Date
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ledgerData.forEach((f) => { %>
+    <tr>
+      <td
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          border-left: 1px solid #ecf0f1;
+          border-right: 1px solid #ecf0f1;
+        "
+      >
+        <%= f.type %>
+      </td>
+      <td
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          border-left: 1px solid #ecf0f1;
+          border-right: 1px solid #ecf0f1;
+        "
+      >
+        <%= f.amount %>
+      </td>
+      <td
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          border-left: 1px solid #ecf0f1;
+          border-right: 1px solid #ecf0f1;
+        "
+      >
+        <%= f.balance %>
+      </td>
+      <td
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          border-left: 1px solid #ecf0f1;
+          border-right: 1px solid #ecf0f1;
+        "
+      >
+        <%= f.payment_type %>
+      </td>
+      <td
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          border-left: 1px solid #ecf0f1;
+          border-right: 1px solid #ecf0f1;
+        "
+      >
+        <%= f.description %>
+      </td>
+      <td
+        style="
+          border-top: 1px solid #ecf0f1;
+          padding: 10px;
+          border-left: 1px solid #ecf0f1;
+          border-right: 1px solid #ecf0f1;
+        "
+      >
+        <%= f.createdAt%>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

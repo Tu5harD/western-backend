@@ -1,0 +1,213 @@
+<body style="font-family: Arial, sans-serif">
+  <h2 style="text-align: center"><%= report %></h2>
+  <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px">
+    <thead>
+      <tr>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          GSTIN/UIN
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Party Name
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Transaction Type
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Invoice No.
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Invoice Date
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Invoice Value
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Rate
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Cess Rate
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Taxable value
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Reverse Charge
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Integrated Tax Amount
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Central Tax Amount
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          State/UT Tax Amount
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Cess Amount
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Place of Supply (Name of state)
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i = 0; i < gstReport.length; i++) { %>
+      <tr>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].gst_no %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].party_name %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].transaction_type %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].invoice_no %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].invoice_date %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].invoice_value %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].rate %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].cess_rate %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].taxable_value %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].reverse_charge %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].integrated_tax_amount %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].central_tax_amount %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].state_tax_amount %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].cess_amount %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].place_of_supply %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= gstReport[i].date %>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>

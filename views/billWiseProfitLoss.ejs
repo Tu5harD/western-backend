@@ -1,0 +1,106 @@
+<body style="font-family: Arial, sans-serif">
+  <h2 style="text-align: center"><%= report %></h2>
+  <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px">
+    <thead>
+      <tr>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Bill ID
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Party Name
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Total Amount
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Pending Amount
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Status
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Profit/Loss
+        </th>
+        <th
+          style="
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            background-color: #f2f2f2;
+          "
+        >
+          Date
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i = 0; i < profitLossReport.length; i++) { %>
+      <tr>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= profitLossReport[i].bill_id %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= profitLossReport[i].retailer_name %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= profitLossReport[i].total_amount %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= profitLossReport[i].pending_amount %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= profitLossReport[i].status %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= profitLossReport[i].profit_loss %>
+        </td>
+        <td style="border: 1px solid #dddddd; text-align: left; padding: 8px">
+          <%= profitLossReport[i].date %>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
