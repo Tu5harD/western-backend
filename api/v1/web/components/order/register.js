@@ -1,6 +1,7 @@
 const { globalError } = require("../../../../../errors/globalError");
 const Order = require("../../../../../model/order/order");
 const OrderList = require("../../../../../model/order/orderList");
+const SpareOrderList = require("../../../../../model/order/spareOrderList");
 const { Sequelize, sequelize } = require("../../../../../config/database");
 
 const newOrderRegistration = async (req, res, next) => {
@@ -68,11 +69,46 @@ const orderListRegister = async (req, res, next) => {
       await t.rollback();
       return next(globalError(405, `Order list did not create`));
     } else {
-      await t.commit();
 
+      req.t = t;
+      req.orders = req?.orders;
+      return next();
+    }
+  } catch (error) {
+    await t.rollback();
+    return next(globalError(500, error.message));
+  }
+};
+
+const spareOrderListRegister = async (req, res, next) => {
+  const t = req.t;
+  try {
+    const { orderList = [] } = req.body;
+
+    const spareOrderListData = orderList.map((item) => ({
+      part_name: item.partName,
+      quantity: parseInt(item.quantity),
+      mrp: parseFloat(item.mrp),
+      unit: item.unit,
+      price: parseFloat(item.price),
+      gst_rate: parseFloat(item.gst),
+      discount: parseFloat(item.discount),
+      order_id: req?.orders?.order_id,
+      total: parseFloat(item.price) * parseFloat(item.quantity),
+    }));
+
+    const createdSpareOrderList = await SpareOrderList.bulkCreate(spareOrderListData, {
+      transaction: t,
+    });
+
+    if (!createdSpareOrderList || createdSpareOrderList.length === 0) {
+      await t.rollback();
+      return next(globalError(405, "Spare order list did not create"));
+    } else {
+      await t.commit();
       res.status(201).json({
         success: true,
-        message: "Order successfully placed",
+        message: "Product and Spare order successfully placed",
         data: { ...req.orders },
       });
     }
@@ -82,4 +118,5 @@ const orderListRegister = async (req, res, next) => {
   }
 };
 
-module.exports = { newOrderRegistration, orderListRegister };
+
+module.exports = { newOrderRegistration, orderListRegister, spareOrderListRegister };

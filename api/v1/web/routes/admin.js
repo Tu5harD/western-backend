@@ -16,8 +16,8 @@ const router = express.Router();
 router.post(
   "/register",
   tokenValidator,
-  tokenTypeValidatorAdmin,
-  isTokenUserExists,
+  // tokenTypeValidatorAdmin,
+  // isTokenUserExists,
   newAdminRegistration
 );
 router.post(

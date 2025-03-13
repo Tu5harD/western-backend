@@ -17,6 +17,7 @@ const {
 const {
   newOrderRegistration,
   orderListRegister,
+  spareOrderListRegister
 } = require("../../components/order/register");
 const {
   updateOrderMaster,
@@ -96,7 +97,8 @@ router.post(
   isTokenUserExists,
   newOrderRegistration,
   billRegister,
-  orderListRegister
+  orderListRegister,
+  spareOrderListRegister,
 );
 
 router.put(
