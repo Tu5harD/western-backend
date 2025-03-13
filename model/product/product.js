@@ -15,7 +15,7 @@ const Product = sequelize.define(
       allowNull: false,
     },
     product_img: {
-      type: DataTypes.TEXT("medium"),
+      type: DataTypes.TEXT,
       defaultValue: "",
     },
     product_name: {
@@ -91,7 +91,7 @@ const Product = sequelize.define(
 
 Product.belongsTo(Category, { foreignKey: "category_id" });
 
-Product.sync({ alter: false })
+Product.sync({ alter: true })
   .then(() => {})
   .catch((error) => {});
 
